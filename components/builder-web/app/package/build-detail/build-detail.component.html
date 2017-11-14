@@ -2,7 +2,7 @@
   <div class="summary" *ngIf="info.state">
     <div class="status {{ statusClass }}">
       <hab-icon [symbol]="statusIcon" [class]="statusClass" [title]="info.state | titlecase"></hab-icon>
-      <strong>Build {{ info.state }}</strong>
+      <span>Build {{ info.state }}</span>
     </div>
     <div class="detail">
       <div class="item">

@@ -135,10 +135,8 @@
           .caret {
             opacity: 0;
             padding-right: 14px;
-            position: absolute;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            @include vertically-centered;
             transition: opacity 0.2s;
 
             hab-icon {
@@ -432,7 +430,7 @@
       }
 
       .mat-raised-button:not([class*=mat-elevation-z]) {
-        @include cta-button;
+        // @include cta-button;
         padding: rem(10) rem(80);
         font-size: rem(16);
         line-height: rem(24);

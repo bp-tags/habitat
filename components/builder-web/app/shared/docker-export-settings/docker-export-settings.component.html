@@ -1,40 +1,38 @@
-<div class="docker-export-settings">
-  <h3>
-    <hab-icon symbol="docker"></hab-icon>
-    Publish to Docker Hub
-  </h3>
-  <p>
-    Export the resulting .hart file as a Docker container and publish it to your Docker Hub account. Integration settings are
-    managed under the origin Settings tab.
-  </p>
-  <div class="toggle">
-    <mat-slide-toggle [(ngModel)]="enabled" [disabled]="!configured">
-      {{ enabled ? "On" : "Off" }}
-    </mat-slide-toggle>
-    <span class="unconfigured" *ngIf="!configured">
-      You can configure this integration in the origin Integrations tab.
-    </span>
-  </div>
-  <div *ngIf="enabled && configured">
-    <div class="integrations">
-      <mat-radio-group [(ngModel)]="name">
-        <ng-container *ngFor="let type of integrations | habKeysPipe">
-          <mat-radio-button *ngFor="let integration of integrations[type]" [value]="integration">
-            <hab-icon [symbol]="type"></hab-icon>
-            <span>{{ integration }}</span>
-          </mat-radio-button>
-        </ng-container>
-      </mat-radio-group>
-    </div>
-    <div class="fields">
-      <label>Docker Organization and Repository</label>
-      <input type="text" [(ngModel)]="repoName" placeholder="{{ repoPlaceholder }}">
-      <label>Custom Tag (Optional)</label>
-      <input type="text" [(ngModel)]="customTag" [placeholder]="'yourtag or \{\{ channel \}\}'">
-      <label>Additional Tags</label>
-      <mat-checkbox [(ngModel)]="latestTag">:latest</mat-checkbox>
-      <mat-checkbox [(ngModel)]="versionTag">:pkg_version</mat-checkbox>
-      <mat-checkbox [(ngModel)]="releaseTag">:pkg_version-pkg_release</mat-checkbox>
-    </div>
-  </div>
-</div>
+<h3>
+  <hab-icon symbol="docker"></hab-icon>
+  Publish to Docker Hub
+</h3>
+<p>
+  Export the resulting .hart file as a Docker container and publish it to your Docker Hub account. Integration settings are
+  managed under the origin Settings tab.
+</p>
+<section class="toggle">
+  <mat-slide-toggle [(ngModel)]="enabled" [disabled]="!configured">
+    {{ enabled ? "On" : "Off" }}
+  </mat-slide-toggle>
+  <span class="unconfigured" *ngIf="!configured">
+    You can configure this integration in the origin Integrations tab.
+  </span>
+</section>
+<ng-container *ngIf="enabled && configured">
+  <section class="integrations">
+    <mat-radio-group [(ngModel)]="name">
+      <ng-container *ngFor="let type of integrations | habKeysPipe">
+        <mat-radio-button *ngFor="let integration of integrations[type]" [value]="integration">
+          <hab-icon [symbol]="type"></hab-icon>
+          <span>{{ integration }}</span>
+        </mat-radio-button>
+      </ng-container>
+    </mat-radio-group>
+  </section>
+  <section class="fields">
+    <label for="repo_name" >Docker Organization and Repository</label>
+    <input type="text" name="repo_name" [(ngModel)]="repoName" placeholder="{{ repoPlaceholder }}">
+    <label for="custom_tag">Custom Tag (Optional)</label>
+    <input type="text" name="custom_tag" [(ngModel)]="customTag" [placeholder]="'yourtag or \{\{ channel \}\}'">
+    <label>Additional Tags</label>
+    <mat-checkbox [(ngModel)]="latestTag">:latest</mat-checkbox>
+    <mat-checkbox [(ngModel)]="versionTag">:pkg_version</mat-checkbox>
+    <mat-checkbox [(ngModel)]="releaseTag">:pkg_version-pkg_release</mat-checkbox>
+  </section>
+</ng-container>

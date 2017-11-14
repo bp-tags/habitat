@@ -1,20 +1,21 @@
 ul.channels {
-  margin-top: 8px;
+  margin-top: $small-margin;
+  line-height: 16.5px;
 
   li.channel {
     display: inline-block;
-    margin-right: 4px;
-    font-size: rem(11);
-    font-weight: bold;
+    margin-right: $default-margin / 4;
+    font-size: 11px;
+    font-weight: 600;
     font-family: $base-font-family;
     padding: 2px 10px;
     border-radius: 11px;
     color: $hab-blue;
-    background-color: $hab-blue-light;
-    border: 1px solid $hab-blue-light;
+    background-color: $light-blue;
+    border: 1px solid $light-blue;
 
     &.unstable {
-      background-color: $hab-white;
+      background-color: $white;
       border: 1px solid $very-light-gray;
       color: $hab-blue;
     }
@@ -22,7 +23,7 @@ ul.channels {
     &.stable {
       background-color: $hab-blue;
       border: 1px solid $hab-blue;
-      color: $hab-white;
+      color: $white;
     }
   }
 }
