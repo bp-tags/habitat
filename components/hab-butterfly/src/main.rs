@@ -48,7 +48,7 @@ const HABITAT_ORG_ENVVAR: &'static str = "HAB_ORG";
 /// Makes the --user CLI param optional when this env var is set
 const HABITAT_USER_ENVVAR: &'static str = "HAB_USER";
 const HABITAT_BUTTERFLY_PORT: u64 = 9638;
-const MAX_FILE_UPLOAD_SIZE_BYTES: u64 = 4096;
+const MAX_FILE_UPLOAD_SIZE_BYTES: u64 = 16384;
 
 lazy_static! {
     /// The default filesystem root path to base all commands from. This is lazily generated on
